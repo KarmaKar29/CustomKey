@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Password Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo" aria-label="Password Generator Logo">PWGen</div>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#generator" class="nav-link">Generator</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Generate Your Secure Password</h1>
+      <p>Customize your password with keywords, length, and character options for maximum security.</p>
+      <button id="toggleBackend" aria-pressed="false" aria-label="Toggle backend password generation" class="btn btn-secondary">
+        Use Backend Generation: OFF
+      </button>
+    </section>
+
+    <section id="generator" class="card" aria-labelledby="generator-label">
+      <h2 id="generator-label">Password Generator</h2>
+      <form id="password-form" aria-describedby="form-desc" autocomplete="off">
+        <p id="form-desc" class="form-description">
+          Enter keywords separated by commas or spaces, select password length, and options below.
+        </p>
+
+        <label for="keywords" class="form-label">Keywords (optional)</label>
+        <input
+          id="keywords"
+          name="keywords"
+          type="text"
+          placeholder="e.g. ocean, moon, fire"
+          aria-describedby="keywords-desc"
+          class="form-input"
+          autocomplete="off"
+        />
+        <small id="keywords-desc" class="form-hint">These words will be included in the generated password.</small>
+
+        <label for="length" class="form-label" style="margin-top: 1.5rem;">
+          Password Length <span aria-hidden="true">⚖️</span>
+        </label>
+        <input
+          id="length"
+          name="length"
+          type="number"
+          min="6"
+          max="64"
+          value="16"
+          required
+          aria-describedby="length-desc"
+          class="form-input"
+        />
+        <small id="length-desc" class="form-hint">Between 6 and 64 characters.</small>
+
+        <fieldset class="checkbox-group" style="margin-top: 1.5rem;" aria-label="Password options">
+          <label><input type="checkbox" id="uppercase" checked /> Include uppercase letters</label>
+          <label><input type="checkbox" id="numbers" checked /> Include numbers</label>
+          <label><input type="checkbox" id="special" checked /> Include special characters</label>
+        </fieldset>
+
+        <button type="submit" id="generate-btn" class="btn btn-primary" style="margin-top: 2rem;">
+          Generate Password
+        </button>
+      </form>
+
+      <div class="password-output-wrapper" style="margin-top: 1.5rem;">
+        <input
+          id="password"
+          class="password-output"
+          type="text"
+          aria-label="Generated password"
+          readonly
+          placeholder="Your generated password will appear here"
+        />
+        <button id="copy-btn" class="btn btn-copy" aria-label="Copy password" disabled>Copy</button>
+      </div>
+    </section>
+
+    <section id="about" class="about" aria-labelledby="about-label">
+      <h2 id="about-label">About This Tool</h2>
+      <p>
+        This password generator allows you to create strong, memorable passwords by including your chosen keywords,
+        setting the desired length, and selecting character types for enhanced security.
+      </p>
+      <p>
+        Designed with simplicity and clarity, perfect for developers and users who value control and security.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      &copy; 2024 PWGen — Crafted with care
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
